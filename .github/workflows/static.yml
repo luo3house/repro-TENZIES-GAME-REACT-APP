@@ -32,7 +32,8 @@ jobs:
           node-version: 14.x
       - run: npm i
       - run: npm run build # now got dist/
-      - uses: actions/upload-artifact@v3
+      - name: Upload dists
+        uses: actions/upload-artifact@v3
         with:
           name: dists
           path: dist/
@@ -53,7 +54,7 @@ jobs:
       - name: Upload dists to Page
         uses: actions/upload-pages-artifact@v1
         with:
-          path: 'dist/'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
